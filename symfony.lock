@@ -25,6 +25,19 @@
             "src/DataFixtures/AppFixtures.php"
         ]
     },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "3.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.1",
+            "ref": "1d01ec03c6ecbd67c3375c5478c9a423ae5d6a33"
+        },
+        "files": [
+            "config/packages/doctrine_migrations.yaml",
+            "migrations/.gitignore"
+        ]
+    },
     "nelmio/cors-bundle": {
         "version": "2.5",
         "recipe": {
@@ -153,6 +166,22 @@
         "files": [
             "config/packages/validator.yaml"
         ]
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "7.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.1",
+            "ref": "8b51135b84f4266e3b4c8a6dc23c9d1e32e543b7"
+        },
+        "files": [
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
+        ]
+    },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.17.3"
     },
     "twig/extra-bundle": {
         "version": "v3.20.0"
