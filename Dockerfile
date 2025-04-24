@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	file \
 	gettext \
 	git \
+	curl \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
@@ -32,6 +33,11 @@ RUN set -eux; \
 		opcache \
 		zip \
 	;
+
+# install nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+RUN apt-get update -y
+RUN apt install nodejs -y
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -71,6 +77,11 @@ RUN set -eux; \
 	;
 
 COPY --link frankenphp/conf.d/20-app.dev.ini $PHP_INI_DIR/app.conf.d/
+
+# install vuejs
+RUN cd _clientside/vue-project && npm install 
+# install react
+RUN cd ../react-project && npm install
 
 CMD [ "frankenphp", "run", "--config", "/etc/caddy/Caddyfile", "--watch" ]
 
