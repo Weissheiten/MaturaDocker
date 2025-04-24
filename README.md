@@ -13,6 +13,12 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 5. Run `docker compose down --remove-orphans` to stop the Docker containers.
 
+## Clientside
+1. Enter the Docker container `docker exec -it maturaumgebung-php-1 bash`
+2. Change into _clientside folder
+3. Choose your framework and change into that folder
+4. Start you dev server by running `npm run dev`
+
 ## Features
 
 * Production, development and CI ready

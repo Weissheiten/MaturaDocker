@@ -78,11 +78,6 @@ RUN set -eux; \
 
 COPY --link frankenphp/conf.d/20-app.dev.ini $PHP_INI_DIR/app.conf.d/
 
-# install vuejs
-RUN cd _clientside/vue-project && npm install 
-# install react
-RUN cd ../react-project && npm install
-
 CMD [ "frankenphp", "run", "--config", "/etc/caddy/Caddyfile", "--watch" ]
 
 # Prod FrankenPHP image
@@ -102,6 +97,11 @@ RUN set -eux; \
 # copy sources
 COPY --link . ./
 RUN rm -Rf frankenphp/
+
+# install vuejs
+RUN cd _clientside/vue-project && npm install 
+# install react
+RUN cd ../react-project && npm install
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
