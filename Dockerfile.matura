@@ -23,9 +23,8 @@ COPY . /var/www/html/
 
 RUN composer install
 
-COPY xdebug.ini $PHP_INI_DIR/conf.d/xdebug.ini
-
-RUN pecl channel-update pecl.php.net && pecl install xdebug-3.4.0 && docker-php-ext-enable xdebug
+# COPY xdebug.ini $PHP_INI_DIR/conf.d/xdebug.ini
+# RUN pecl channel-update pecl.php.net && pecl install xdebug-3.4.0 && docker-php-ext-enable xdebug
 
 # install vuejs
 RUN cd _clientside/vue-project && npm install 
