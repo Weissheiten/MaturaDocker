@@ -23,13 +23,16 @@ COPY . /var/www/html/
 
 RUN composer install
 
+COPY xdebug.ini $PHP_INI_DIR/conf.d/xdebug.ini
+
+RUN pecl channel-update pecl.php.net && pecl install xdebug-3.4.0 && docker-php-ext-enable xdebug
+
 # install vuejs
 RUN cd _clientside/vue-project && npm install 
 # install react
 RUN cd _clientside/react-project && npm install
 
-RUN chown -R www-data.www-data *
-RUN chown -R www-data.www-data .*
+RUN chown -R www-data:www-data *
 
 EXPOSE 80
 EXPOSE 443
